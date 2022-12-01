@@ -1,4 +1,5 @@
 import { Paper, Toolbar, Typography } from "@mui/material";
+import React from "react";
 
 type PageProps = {
     header: string;

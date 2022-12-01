@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import { SideMenu } from "./components/SideMenu";
 import AddIcon from "@mui/icons-material/Add";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import React from "react";
 
 function App() {
     return (

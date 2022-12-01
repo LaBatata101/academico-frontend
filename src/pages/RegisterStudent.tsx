@@ -4,6 +4,7 @@ import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import { Page } from "../components/Page";
 import { Button } from "@mui/material";
 import { Form, FormItem } from "../components/Form";
+import React from "react";
 
 export const RegisterStudentPage = () => {
     const validationSchema = yup.object({
