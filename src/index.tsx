@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { StudentListPage } from "./pages/StudentList";
 import { RegisterStudentPage } from "./pages/RegisterStudent";
 import { PageNotFound } from "./pages/PageNotFound";
+import { RegisterProfessorPage } from "./pages/RegisterProfessor";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
@@ -17,6 +18,9 @@ root.render(
                     <Route path="alunos">
                         <Route path="listar" element={<StudentListPage />} />
                         <Route path="cadastrar" element={<RegisterStudentPage />} />
+                    </Route>
+                    <Route path="professor">
+                        <Route path="cadastrar" element={<RegisterProfessorPage />} />
                     </Route>
                 </Route>
                 <Route path="*" element={<PageNotFound />} />
