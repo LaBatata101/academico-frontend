@@ -1,4 +1,7 @@
 import { Box, Button, Grid, TextField } from "@mui/material";
+import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+import moment from "moment";
 
 type FormProps = {
     onSubmit: (e?: React.FormEvent<HTMLFormElement>) => void;
@@ -12,7 +15,8 @@ type FormItemProps = {
     value: any;
     error?: boolean;
     helperText?: string | boolean;
-    onInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    onInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | null) => void;
+    formik?: any
 };
 
 export const Form = ({ onSubmit, children }: FormProps) => {
@@ -36,19 +40,32 @@ export const FormItem = ({
     onInputChange,
     error,
     helperText,
+    formik
 }: FormItemProps) => {
     return (
         <Grid item xs={6}>
-            <TextField
-                id={id}
-                label={label}
-                variant="outlined"
-                type={type}
-                value={value}
-                onChange={onInputChange}
-                error={error}
-                helperText={helperText}
-            />
+            {type === "date" ? (
+                <LocalizationProvider dateAdapter={AdapterMoment}>
+                    <DesktopDatePicker
+                        label={label}
+                        inputFormat="DD/MM/YYYY"
+                        onChange={(value) => formik.setFieldValue("birthday", value, true)}
+                        value={value}
+                        renderInput={(params) => <TextField {...params} />}
+                    />
+                </LocalizationProvider>
+            ) : (
+                <TextField
+                    id={id}
+                    label={label}
+                    variant="outlined"
+                    type={type}
+                    value={value}
+                    onChange={onInputChange}
+                    error={error}
+                    helperText={helperText}
+                />
+            )}
         </Grid>
     );
 };
