@@ -8,6 +8,7 @@ import { StudentListPage } from "./pages/StudentList";
 import { RegisterStudentPage } from "./pages/RegisterStudent";
 import { PageNotFound } from "./pages/PageNotFound";
 import { RegisterProfessorPage } from "./pages/RegisterProfessor";
+import { RegisterDisciplinePage } from "./pages/RegisterDisciplinePage";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
@@ -21,6 +22,9 @@ root.render(
                     </Route>
                     <Route path="professor">
                         <Route path="cadastrar" element={<RegisterProfessorPage />} />
+                    </Route>
+                    <Route path="disciplina">
+                        <Route path="cadastrar" element={<RegisterDisciplinePage />} />
                     </Route>
                 </Route>
                 <Route path="*" element={<PageNotFound />} />

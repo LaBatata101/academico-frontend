@@ -7,6 +7,7 @@ import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import React from "react";
 import { StudentIcon } from "./icons/StudentIcon";
 import { TeacherIcon } from "./icons/TeacherIcon";
+import { DisciplineIcon } from "./icons/DisciplineIcon";
 
 function App() {
     const menu_items = [
@@ -39,6 +40,11 @@ function App() {
                     label: "Professor",
                     href: "professor/cadastrar",
                     icon: <TeacherIcon />,
+                },
+                {
+                    label: "Disciplina",
+                    href: "disciplina/cadastrar",
+                    icon: <DisciplineIcon />,
                 },
             ],
         },
