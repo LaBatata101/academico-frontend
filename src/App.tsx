@@ -5,8 +5,45 @@ import { SideMenu } from "./components/SideMenu";
 import AddIcon from "@mui/icons-material/Add";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import React from "react";
+import { StudentIcon } from "./icons/StudentIcon";
+import { TeacherIcon } from "./icons/TeacherIcon";
 
 function App() {
+    const menu_items = [
+        {
+            label: "Listar",
+            icon: <FormatListBulletedIcon />,
+            submenus: [
+                {
+                    label: "Aluno",
+                    href: "alunos/listar",
+                    icon: <StudentIcon />,
+                },
+                {
+                    label: "Professor",
+                    href: "professor/listar",
+                    icon: <TeacherIcon />,
+                },
+            ],
+        },
+        {
+            label: "Cadastrar",
+            icon: <AddIcon />,
+            submenus: [
+                {
+                    label: "Aluno",
+                    href: "alunos/cadastrar",
+                    icon: <StudentIcon />,
+                },
+                {
+                    label: "Professor",
+                    href: "professor/cadastrar",
+                    icon: <TeacherIcon />,
+                },
+            ],
+        },
+    ];
+
     return (
         <Box sx={{ display: "flex" }}>
             <CssBaseline />
@@ -17,12 +54,7 @@ function App() {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <SideMenu
-                menu_items={[
-                    { label: "Listar", href: "alunos/listar", icon: <FormatListBulletedIcon /> },
-                    { label: "Cadastrar", href: "alunos/cadastrar", icon: <AddIcon /> },
-                ]}
-            />
+            <SideMenu menu_items={menu_items} />
             <Box component="main" sx={{ flex: 1 }}>
                 <Toolbar />
                 <Outlet />
