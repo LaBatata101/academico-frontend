@@ -11,8 +11,11 @@ import { formDataReducer } from "../helpers/formdata";
 import { getUrl } from "../api";
 import { useFormik } from "formik";
 
-const validationSchema = yup.object({
-    name: yup.string().required("Nome é obrigatorio"),
+const validationSchema = yup.object().shape({
+    name: yup
+        .string()
+        .required("Nome é obrigatorio")
+        .matches(/^([^0-9]*)$/, "Somente caracteres são válidos"),
     email: yup.string().email("Digite um email valido").required("Email é obrigatorio"),
     password: yup
         .string()
@@ -20,8 +23,8 @@ const validationSchema = yup.object({
         .required("Senha é obrigatorio"),
     phone: yup
         .string()
-        .test(`test-phone-number`, "Numero de telefone invalído", function(value) {
-            // TODO: fix max number
+        .min(9, "O número máximo de caracteres do telefone é 9")
+        .test(`test-phone-number`, "Numero de telefone invalído", function (value) {
             return value?.match(/\([0-9]{2}\)[0-9]{9}|[0-9]{9}/) !== null;
         })
         .required("Numero de telefone é obrigatorio"),
