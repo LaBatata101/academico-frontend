@@ -47,7 +47,7 @@ export const RegisterProfessorPage = () => {
         onSubmit: (values) => {
             dispatchFormData({ type: "FORM_DATA_RESET_STATE" });
             axios
-                .post(getUrl("/student", "/new"), {
+                .post(getUrl("/professor", "/new"), {
                     name: values.name,
                     email: values.email,
                     password: values.password,
@@ -55,7 +55,7 @@ export const RegisterProfessorPage = () => {
                     disciplines: [],
                 })
                 .then(() => dispatchFormData({ type: "FORM_DATA_POST_SUCCESS" }))
-                .catch(() => dispatchFormData({ type: "FORM_DATA_POST_SUCCESS" }));
+                .catch(() => dispatchFormData({ type: "FORM_DATA_POST_FAILURE" }));
         },
     });
 
