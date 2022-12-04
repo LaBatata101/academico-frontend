@@ -68,8 +68,9 @@ const SideMenuItemWithSubmenus = ({ menu_item }: { menu_item: MenuItem }) => {
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     {menu_item.submenus &&
-                        menu_item.submenus.map((menu_item) => (
+                        menu_item.submenus.map((menu_item, index) => (
                             <SideMenuItem
+                                key={`${menu_item.label}_${index}`}
                                 sx={{ pl: 4 }}
                                 label={menu_item.label}
                                 href={menu_item.href}
@@ -99,7 +100,12 @@ export const SideMenu = ({ menu_items }: SideMenuProps) => {
                 <List>
                     {menu_items.map((menu_item: MenuItem, index: number) => {
                         if (menu_item.submenus) {
-                            return <SideMenuItemWithSubmenus menu_item={menu_item} />;
+                            return (
+                                <SideMenuItemWithSubmenus
+                                    key={`${menu_item.label}_${index}`}
+                                    menu_item={menu_item}
+                                />
+                            );
                         } else {
                             return (
                                 <SideMenuItem
