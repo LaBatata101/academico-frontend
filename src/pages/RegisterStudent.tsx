@@ -10,42 +10,7 @@ import axios from "axios";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { ShowAlert } from "../components/ShowAlert";
-
-type StudentState = {
-    // student: Student;
-    isSuccess: boolean;
-    isError: boolean;
-};
-
-interface StudentCreateSuccessAction {
-    type: "STUDENT_CREATE_SUCCESS";
-}
-
-interface StudentCreateFailureAction {
-    type: "STUDENT_CREATE_FAILURE";
-}
-
-interface StudentCreateResetStateAction {
-    type: "STUDENT_CREATE_RESET_STATE";
-}
-
-type StudentAction =
-    | StudentCreateSuccessAction
-    | StudentCreateFailureAction
-    | StudentCreateResetStateAction;
-
-const studentReducer = (state: StudentState, action: StudentAction) => {
-    switch (action.type) {
-        case "STUDENT_CREATE_SUCCESS":
-            return { ...state, isSuccess: true, isError: false };
-        case "STUDENT_CREATE_FAILURE":
-            return { ...state, isSuccess: false, isError: true };
-        case "STUDENT_CREATE_RESET_STATE":
-            return { ...state, isSuccess: false, isError: false };
-        default:
-            throw new Error();
-    }
-};
+import { formDataReducer } from "../helpers/formdata";
 
 const validationSchema = yup.object({
     name: yup.string().required("Nome é obrigatorio"),
@@ -72,7 +37,7 @@ const validationSchema = yup.object({
 });
 
 export const RegisterStudentPage = () => {
-    const [student, dispatchStudent] = React.useReducer(studentReducer, {
+    const [student, dispatchStudent] = React.useReducer(formDataReducer, {
         isSuccess: false,
         isError: false,
     });
@@ -87,7 +52,7 @@ export const RegisterStudentPage = () => {
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-            dispatchStudent({ type: "STUDENT_CREATE_RESET_STATE" });
+            dispatchStudent({ type: "FORM_DATA_RESET_STATE" });
             axios
                 .post(getUrl("/student", "/new"), {
                     name: values.name,
@@ -97,8 +62,8 @@ export const RegisterStudentPage = () => {
                     phone: values.phone,
                     disciplines: [],
                 })
-                .then(() => dispatchStudent({ type: "STUDENT_CREATE_SUCCESS" }))
-                .catch(() => dispatchStudent({ type: "STUDENT_CREATE_FAILURE" }));
+                .then(() => dispatchStudent({ type: "FORM_DATA_POST_SUCCESS" }))
+                .catch(() => dispatchStudent({ type: "FORM_DATA_POST_FAILURE" }));
         },
     });
 
