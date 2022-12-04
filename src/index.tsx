@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { StudentListPage } from "./pages/StudentList";
 import { RegisterStudentPage } from "./pages/RegisterStudent";
+import { PageNotFound } from "./pages/PageNotFound";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
@@ -18,6 +19,7 @@ root.render(
                         <Route path="cadastrar" element={<RegisterStudentPage />} />
                     </Route>
                 </Route>
+                <Route path="*" element={<PageNotFound />} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>
