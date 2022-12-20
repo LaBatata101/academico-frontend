@@ -12,6 +12,7 @@ import { RegisterDisciplinePage } from "./pages/RegisterDisciplinePage";
 import { RegisterCoursePage } from "./pages/RegisterCourse";
 import { RegisterClassPage } from "./pages/RegisterClass";
 import { RegisterCurriculumPage } from "./pages/RegisterCurriculum";
+import { ProfessorListPage } from "./pages/ProfessorList";
 import { DisciplinesListPage } from "./pages/DisciplinesList";
 import { CoursesListPage } from "./pages/CoursesList";
 import { ClassesListPage } from "./pages/ClassesList";
@@ -28,6 +29,7 @@ root.render(
                         <Route path="cadastrar" element={<RegisterStudentPage />} />
                     </Route>
                     <Route path="professor">
+                        <Route path="listar" element={<ProfessorListPage />} />
                         <Route path="cadastrar" element={<RegisterProfessorPage />} />
                     </Route>
                     <Route path="disciplina">
