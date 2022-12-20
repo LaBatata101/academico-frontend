@@ -59,6 +59,10 @@ function App() {
                     icon: <DisciplineIcon />,
                 },
                 {
+                    label: "Curso",
+                    href: "curso/cadastrar",
+                    icon: <CourseIcon />,
+                {
                     label: "Turma",
                     href: "turma/cadastrar",
                     icon: <ClassIcon />,

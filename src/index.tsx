@@ -9,6 +9,7 @@ import { RegisterStudentPage } from "./pages/RegisterStudent";
 import { PageNotFound } from "./pages/PageNotFound";
 import { RegisterProfessorPage } from "./pages/RegisterProfessor";
 import { RegisterDisciplinePage } from "./pages/RegisterDisciplinePage";
+import { RegisterCoursePage } from "./pages/RegisterCourse";
 import { RegisterClassPage } from "./pages/RegisterClass";
 import { CoursesListPage } from "./pages/CoursesList";
 import { ClassesListPage } from "./pages/ClassesList";
@@ -31,6 +32,7 @@ root.render(
                     </Route>
                     <Route path="curso">
                         <Route path="listar" element={<CoursesListPage />} />
+                        <Route path="cadastrar" element={<RegisterCoursePage />} />
                     </Route>
                     <Route path="turma">
                         <Route path="listar" element={<ClassesListPage />} />
