@@ -19,12 +19,12 @@ function App() {
             icon: <FormatListBulletedIcon />,
             submenus: [
                 {
-                    label: "Aluno",
+                    label: "Alunos",
                     href: "alunos/listar",
                     icon: <StudentIcon />,
                 },
                 {
-                    label: "Professor",
+                    label: "Professores",
                     href: "professor/listar",
                     icon: <TeacherIcon />,
                 },
