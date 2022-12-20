@@ -1,7 +1,14 @@
 export const API_BASE = "http://localhost:8080";
 
 export const getUrl = (
-    endpoint: "/" | "/student" | "/discipline" | "/professor",
+    endpoint:
+        | "/"
+        | "/student"
+        | "/discipline"
+        | "/professor"
+        | "/class"
+        | "/course"
+        | "/curriculum",
     path: string,
     url_parameter?: string
 ) => {
