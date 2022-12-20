@@ -29,6 +29,11 @@ function App() {
                     icon: <TeacherIcon />,
                 },
                 {
+                    label: "Disciplinas",
+                    href: "disciplina/listar",
+                    icon: <DisciplineIcon />,
+                },
+                {
                     label: "Cursos",
                     href: "curso/listar",
                     icon: <CourseIcon />,
