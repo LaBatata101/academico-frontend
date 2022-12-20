@@ -52,6 +52,11 @@ function App() {
                     href: "disciplina/cadastrar",
                     icon: <DisciplineIcon />,
                 },
+                {
+                    label: "Turma",
+                    href: "turma/cadastrar",
+                    icon: <ClassIcon />,
+                },
             ],
         },
     ];
