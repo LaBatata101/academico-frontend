@@ -68,6 +68,12 @@ function App() {
                     label: "Curso",
                     href: "curso/cadastrar",
                     icon: <CourseIcon />,
+                },
+                {
+                    label: "Matriz Curricular",
+                    href: "matriz-curricular/cadastrar",
+                    icon: <CurriculumIcon />,
+                },
                 {
                     label: "Turma",
                     href: "turma/cadastrar",

@@ -11,6 +11,7 @@ import { RegisterProfessorPage } from "./pages/RegisterProfessor";
 import { RegisterDisciplinePage } from "./pages/RegisterDisciplinePage";
 import { RegisterCoursePage } from "./pages/RegisterCourse";
 import { RegisterClassPage } from "./pages/RegisterClass";
+import { RegisterCurriculumPage } from "./pages/RegisterCurriculum";
 import { CoursesListPage } from "./pages/CoursesList";
 import { ClassesListPage } from "./pages/ClassesList";
 import { CurriculumListPage } from "./pages/CurriculumList";
@@ -41,6 +42,7 @@ root.render(
                     </Route>
                     <Route path="matriz-curricular">
                         <Route path="listar" element={<CurriculumListPage />} />
+                        <Route path="cadastrar" element={<RegisterCurriculumPage />} />
                     </Route>
                 </Route>
                 <Route path="*" element={<PageNotFound />} />
