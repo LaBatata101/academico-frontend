@@ -8,6 +8,7 @@ import React from "react";
 import { StudentIcon } from "./icons/StudentIcon";
 import { TeacherIcon } from "./icons/TeacherIcon";
 import { DisciplineIcon } from "./icons/DisciplineIcon";
+import { ClassIcon } from "./icons/ClassIcon";
 
 function App() {
     const menu_items = [
@@ -24,6 +25,11 @@ function App() {
                     label: "Professor",
                     href: "professor/listar",
                     icon: <TeacherIcon />,
+                },
+                {
+                    label: "Turmas",
+                    href: "turma/listar",
+                    icon: <ClassIcon />,
                 },
             ],
         },
