@@ -24,3 +24,20 @@ export type Student = {
     birthday: Date;
     disciplines: Array<Discipline>;
 };
+
+export type Professor = {
+    name: string;
+};
+
+export type Course = {
+    name: string;
+};
+
+export type Class = {
+    name: string;
+};
+
+export type Curriculum = {
+    name: string;
+    date: Date;
+};
