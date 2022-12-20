@@ -25,7 +25,7 @@ const validationSchema = yup.object().shape({
         .string()
         .min(9, "O número máximo de caracteres do telefone é 9")
         .test(`test-phone-number`, "Numero de telefone invalído", function (value) {
-            return value?.match(/\([0-9]{2}\)[0-9]{9}|[0-9]{9}/) !== null;
+            return value?.match(/\([0-9]{2}\) [0-9]{5}-[0-9]{4}/) !== null;
         })
         .required("Numero de telefone é obrigatorio"),
 });
@@ -55,7 +55,10 @@ export const RegisterProfessorPage = () => {
                     disciplines: [],
                 })
                 .then(() => dispatchFormData({ type: "FORM_DATA_POST_SUCCESS" }))
-                .catch(() => dispatchFormData({ type: "FORM_DATA_POST_FAILURE" }));
+                .catch((error) => {
+                    console.log(error);
+                    dispatchFormData({ type: "FORM_DATA_POST_FAILURE" });
+                });
         },
     });
 
@@ -95,6 +98,7 @@ export const RegisterProfessorPage = () => {
                 <FormItem
                     id="phone"
                     label="Numero de telefone"
+                    mask="(99) 99999-9999"
                     value={formik.values.phone}
                     onInputChange={formik.handleChange}
                     error={formik.touched.phone && Boolean(formik.errors.phone)}
