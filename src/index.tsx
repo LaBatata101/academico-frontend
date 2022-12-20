@@ -13,6 +13,7 @@ import { RegisterCoursePage } from "./pages/RegisterCourse";
 import { RegisterClassPage } from "./pages/RegisterClass";
 import { CoursesListPage } from "./pages/CoursesList";
 import { ClassesListPage } from "./pages/ClassesList";
+import { CurriculumListPage } from "./pages/CurriculumList";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
@@ -37,6 +38,9 @@ root.render(
                     <Route path="turma">
                         <Route path="listar" element={<ClassesListPage />} />
                         <Route path="cadastrar" element={<RegisterClassPage />} />
+                    </Route>
+                    <Route path="matriz-curricular">
+                        <Route path="listar" element={<CurriculumListPage />} />
                     </Route>
                 </Route>
                 <Route path="*" element={<PageNotFound />} />

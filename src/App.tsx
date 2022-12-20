@@ -9,6 +9,7 @@ import { StudentIcon } from "./icons/StudentIcon";
 import { TeacherIcon } from "./icons/TeacherIcon";
 import { DisciplineIcon } from "./icons/DisciplineIcon";
 import { CourseIcon } from "./icons/CourseIcon";
+import { CurriculumIcon } from "./icons/CurriculumIcon";
 import { ClassIcon } from "./icons/ClassIcon";
 
 function App() {
@@ -31,6 +32,11 @@ function App() {
                     label: "Cursos",
                     href: "curso/listar",
                     icon: <CourseIcon />,
+                },
+                {
+                    label: "Matriz Curricular",
+                    href: "matriz-curricular/listar",
+                    icon: <CurriculumIcon />,
                 },
                 {
                     label: "Turmas",
