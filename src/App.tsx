@@ -8,6 +8,7 @@ import React from "react";
 import { StudentIcon } from "./icons/StudentIcon";
 import { TeacherIcon } from "./icons/TeacherIcon";
 import { DisciplineIcon } from "./icons/DisciplineIcon";
+import { CourseIcon } from "./icons/CourseIcon";
 import { ClassIcon } from "./icons/ClassIcon";
 
 function App() {
@@ -25,6 +26,11 @@ function App() {
                     label: "Professor",
                     href: "professor/listar",
                     icon: <TeacherIcon />,
+                },
+                {
+                    label: "Cursos",
+                    href: "curso/listar",
+                    icon: <CourseIcon />,
                 },
                 {
                     label: "Turmas",

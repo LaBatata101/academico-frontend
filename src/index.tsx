@@ -10,6 +10,7 @@ import { PageNotFound } from "./pages/PageNotFound";
 import { RegisterProfessorPage } from "./pages/RegisterProfessor";
 import { RegisterDisciplinePage } from "./pages/RegisterDisciplinePage";
 import { RegisterClassPage } from "./pages/RegisterClass";
+import { CoursesListPage } from "./pages/CoursesList";
 import { ClassesListPage } from "./pages/ClassesList";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
@@ -27,6 +28,9 @@ root.render(
                     </Route>
                     <Route path="disciplina">
                         <Route path="cadastrar" element={<RegisterDisciplinePage />} />
+                    </Route>
+                    <Route path="curso">
+                        <Route path="listar" element={<CoursesListPage />} />
                     </Route>
                     <Route path="turma">
                         <Route path="listar" element={<ClassesListPage />} />
