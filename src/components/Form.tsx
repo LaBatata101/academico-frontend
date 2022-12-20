@@ -1,7 +1,7 @@
 import { Box, Button, Grid, TextField } from "@mui/material";
 import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
-import moment from "moment";
+import InputMask from "react-input-mask";
 
 type FormProps = {
     onSubmit: (e?: React.FormEvent<HTMLFormElement>) => void;
@@ -16,7 +16,8 @@ type FormItemProps = {
     error?: boolean;
     helperText?: string | boolean;
     onInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | null) => void;
-    formik?: any
+    formik?: any;
+    mask?: string;
 };
 
 export const Form = ({ onSubmit, children }: FormProps) => {
@@ -40,11 +41,35 @@ export const FormItem = ({
     onInputChange,
     error,
     helperText,
-    formik
+    formik,
+    mask,
 }: FormItemProps) => {
-    return (
-        <Grid item xs={6}>
-            {type === "date" ? (
+    if (mask) {
+        return (
+            <Grid item xs={6}>
+                <InputMask
+                    mask={mask}
+                    value={value}
+                    onChange={onInputChange}
+                    maskPlaceholder={null}
+                >
+                    <TextField
+                        id={id}
+                        label={label}
+                        variant="outlined"
+                        type={type}
+                        error={error}
+                        helperText={helperText}
+                    />
+                </InputMask>
+            </Grid>
+        );
+    }
+
+    let input_component;
+    switch (type) {
+        case "date":
+            input_component = (
                 <LocalizationProvider dateAdapter={AdapterMoment}>
                     <DesktopDatePicker
                         label={label}
@@ -54,7 +79,10 @@ export const FormItem = ({
                         renderInput={(params) => <TextField {...params} />}
                     />
                 </LocalizationProvider>
-            ) : (
+            );
+            break;
+        default:
+            input_component = (
                 <TextField
                     id={id}
                     label={label}
@@ -65,7 +93,12 @@ export const FormItem = ({
                     error={error}
                     helperText={helperText}
                 />
-            )}
+            );
+    }
+
+    return (
+        <Grid item xs={6}>
+            {input_component}
         </Grid>
     );
 };
